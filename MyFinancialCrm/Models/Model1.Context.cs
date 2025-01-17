@@ -28,9 +28,9 @@ namespace MyFinancialCrm.Models
         public virtual DbSet<BankProcesses> BankProcesses { get; set; }
         public virtual DbSet<Banks> Banks { get; set; }
         public virtual DbSet<Bills> Bills { get; set; }
-        public virtual DbSet<Categorys> Categorys { get; set; }
-        public virtual DbSet<Spendings> Spendings { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Categorys> Categorys { get; set; }
+        public virtual DbSet<Spendings> Spendings { get; set; }
     }
 }

@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="aa8ef8d749b14ecbad8eb6e45ddcb775" Name="Diagram1">
-        <EntityTypeShape EntityType="FinancialCrmDbModel.BankProcesses" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinancialCrmDbModel.Banks" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinancialCrmDbModel.Bills" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinancialCrmDbModel.Categorys" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinancialCrmDbModel.Spendings" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinancialCrmDbModel.BankProcesses" Width="1.5" PointX="3.125" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinancialCrmDbModel.Banks" Width="1.5" PointX="1" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinancialCrmDbModel.Bills" Width="1.5" PointX="2.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FinancialCrmDbModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinancialCrmDbModel.Users" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinancialCrmDbModel.Users" Width="1.5" PointX="8.75" PointY="4.125" IsExpanded="true" />
         <AssociationConnector Association="FinancialCrmDbModel.FK_BankProcesses_Banks" ManuallyRouted="false" />
-        <AssociationConnector Association="FinancialCrmDbModel.FK_Spendings_Categorys" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="FinancialCrmDbModel.Categorys" Width="1.5" PointX="4.375" PointY="1.75" />
+        <EntityTypeShape EntityType="FinancialCrmDbModel.Spendings" Width="1.5" PointX="7" PointY="1.5" />
+        <AssociationConnector Association="FinancialCrmDbModel.FK_Spendings_Categorys" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

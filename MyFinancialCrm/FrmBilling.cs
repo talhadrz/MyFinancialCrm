@@ -21,6 +21,7 @@ namespace MyFinancialCrm
         {
             var values = db.Bills.ToList();
             dataGridView1.DataSource = values;
+            Edit.edit(this);
         }
 
         private void btnBillList_Click(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace MyFinancialCrm
             int id = int.Parse(txtBillId.Text);
 
             var values = db.Bills.Find(id);
-            
+
             values.BillTitle = Title;
             values.BillAmount = Amount;
             values.BillPeriod = Period;
@@ -81,11 +82,32 @@ namespace MyFinancialCrm
 
         private void btnBaksForm_Click(object sender, EventArgs e)
         {
-            FrmBanks Frm = new FrmBanks();
-            Frm.Show();
-            this.Hide();
+            form.OpenForm(this, form.FormType.Banks);
+        }
+        private void btnCatagoriys_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.Categories);
+        }
+        private void btnDashbord_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.Dashboard);
+        }
+        private void btnBankProcesses_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.BankProcesses);
+        }
+        private void btnSpendings_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.Spendings);
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
 
-      
+        private void btnProperties_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.settings);
+        }
     }
 }

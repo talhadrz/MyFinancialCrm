@@ -56,6 +56,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form.cs" />
+    <Compile Include="Frmsettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmsettings.Designer.cs">
+      <DependentUpon>Frmsettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsers.Designer.cs">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="FrmBankProcesses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBankProcesses.Designer.cs">
+      <DependentUpon>FrmBankProcesses.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBanks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,11 +88,23 @@
     <Compile Include="FrmBilling.Designer.cs">
       <DependentUpon>FrmBilling.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCategoriys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoriys.Designer.cs">
+      <DependentUpon>FrmCategoriys.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDashbord.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDashbord.Designer.cs">
       <DependentUpon>FrmDashbord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSpendings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSpendings.Designer.cs">
+      <DependentUpon>frmSpendings.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BankProcesses.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -112,14 +144,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBankProcesses.resx">
+      <DependentUpon>FrmBankProcesses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBanks.resx">
       <DependentUpon>FrmBanks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBilling.resx">
       <DependentUpon>FrmBilling.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoriys.resx">
+      <DependentUpon>FrmCategoriys.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDashbord.resx">
       <DependentUpon>FrmDashbord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmsettings.resx">
+      <DependentUpon>Frmsettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSpendings.resx">
+      <DependentUpon>frmSpendings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsers.resx">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

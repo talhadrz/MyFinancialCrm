@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FinancialCrmDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FinancialCrmDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BankProcesses">
           <Key>
             <PropertyRef Name="BankProcessId" />
@@ -36,10 +36,10 @@
         </EntityType>
         <EntityType Name="Categorys">
           <Key>
-            <PropertyRef Name="CatrgoryId" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CatrgoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CatagoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Spendings">
           <Key>
@@ -86,7 +86,7 @@
           <End Role="Spendings" Type="Self.Spendings" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categorys">
-              <PropertyRef Name="CatrgoryId" />
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Spendings">
               <PropertyRef Name="CategoryId" />
@@ -110,8 +110,7 @@
             <End Role="Spendings" EntitySet="Spendings" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FinancialCrmDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -146,25 +145,6 @@
           <Property Name="BillAmount" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="BillPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Categorys">
-          <Key>
-            <PropertyRef Name="CatrgoryId" />
-          </Key>
-          <Property Name="CatrgoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CatagoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Spendings" Relationship="Self.FK_Spendings_Categorys" FromRole="Categorys" ToRole="Spendings" />
-        </EntityType>
-        <EntityType Name="Spendings">
-          <Key>
-            <PropertyRef Name="SpendingId" />
-          </Key>
-          <Property Name="SpendingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SpendingTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SpendingAmount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="SpendingDate" Type="DateTime" Precision="0" />
-          <Property Name="CategoryId" Type="Int32" />
-          <NavigationProperty Name="Categorys" Relationship="Self.FK_Spendings_Categorys" FromRole="Spendings" ToRole="Categorys" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -195,35 +175,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Spendings_Categorys">
-          <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1" />
-          <End Role="Spendings" Type="Self.Spendings" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categorys">
-              <PropertyRef Name="CatrgoryId" />
-            </Principal>
-            <Dependent Role="Spendings">
-              <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="FinancialCrmDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BankProcesses" EntityType="Self.BankProcesses" />
           <EntitySet Name="Banks" EntityType="Self.Banks" />
           <EntitySet Name="Bills" EntityType="Self.Bills" />
-          <EntitySet Name="Categorys" EntityType="Self.Categorys" />
-          <EntitySet Name="Spendings" EntityType="Self.Spendings" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK_BankProcesses_Banks" Association="Self.FK_BankProcesses_Banks">
             <End Role="Banks" EntitySet="Banks" />
             <End Role="BankProcesses" EntitySet="BankProcesses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Spendings_Categorys" Association="Self.FK_Spendings_Categorys">
+          <EntitySet Name="Categorys" EntityType="FinancialCrmDbModel.Categorys" />
+          <EntitySet Name="Spendings" EntityType="FinancialCrmDbModel.Spendings" />
+          <AssociationSet Name="FK_Spendings_Categorys" Association="FinancialCrmDbModel.FK_Spendings_Categorys">
             <End Role="Categorys" EntitySet="Categorys" />
             <End Role="Spendings" EntitySet="Spendings" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Spendings" Relationship="FinancialCrmDbModel.FK_Spendings_Categorys" FromRole="Categorys" ToRole="Spendings" />
+        </EntityType>
+        <EntityType Name="Spendings">
+          <Key>
+            <PropertyRef Name="SpendingId" />
+          </Key>
+          <Property Name="SpendingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpendingTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SpendingAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SpendingDate" Type="DateTime" Precision="0" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="Categorys" Relationship="FinancialCrmDbModel.FK_Spendings_Categorys" FromRole="Spendings" ToRole="Categorys" />
+        </EntityType>
+        <Association Name="FK_Spendings_Categorys">
+          <End Type="FinancialCrmDbModel.Categorys" Role="Categorys" Multiplicity="0..1" />
+          <End Type="FinancialCrmDbModel.Spendings" Role="Spendings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Spendings">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -262,25 +261,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Categorys">
-            <EntityTypeMapping TypeName="FinancialCrmDbModel.Categorys">
-              <MappingFragment StoreEntitySet="Categorys">
-                <ScalarProperty Name="CatrgoryId" ColumnName="CatrgoryId" />
-                <ScalarProperty Name="CatagoryName" ColumnName="CatagoryName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Spendings">
-            <EntityTypeMapping TypeName="FinancialCrmDbModel.Spendings">
-              <MappingFragment StoreEntitySet="Spendings">
-                <ScalarProperty Name="SpendingId" ColumnName="SpendingId" />
-                <ScalarProperty Name="SpendingTitle" ColumnName="SpendingTitle" />
-                <ScalarProperty Name="SpendingAmount" ColumnName="SpendingAmount" />
-                <ScalarProperty Name="SpendingDate" ColumnName="SpendingDate" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="FinancialCrmDbModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -298,6 +278,25 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorys">
+            <EntityTypeMapping TypeName="FinancialCrmDbModel.Categorys">
+              <MappingFragment StoreEntitySet="Categorys">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spendings">
+            <EntityTypeMapping TypeName="FinancialCrmDbModel.Spendings">
+              <MappingFragment StoreEntitySet="Spendings">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SpendingDate" ColumnName="SpendingDate" />
+                <ScalarProperty Name="SpendingAmount" ColumnName="SpendingAmount" />
+                <ScalarProperty Name="SpendingTitle" ColumnName="SpendingTitle" />
+                <ScalarProperty Name="SpendingId" ColumnName="SpendingId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

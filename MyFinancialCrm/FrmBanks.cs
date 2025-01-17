@@ -23,26 +23,54 @@ namespace MyFinancialCrm
             lblİsBankasiBalance.Text = İsBankasiBalance.ToString() + " ₺";
             // Banka Hareketleri
             var BankProcess1 = db.BankProcesses.OrderByDescending(x => x.BankProcessId).Take(1).FirstOrDefault();
-            lblBankProcess1.Text = BankProcess1.Desciription + " " + BankProcess1.Amount + " " + BankProcess1.ProcessDate;   
-            
+            lblBankProcess1.Text = BankProcess1.Desciription + " " + BankProcess1.Amount + " " + BankProcess1.ProcessDate;
+
             var BankProcess2 = db.BankProcesses.OrderByDescending(x => x.BankProcessId).Take(2).Skip(1).FirstOrDefault();
-            lblBankProcess2.Text = BankProcess2.Desciription + " " + BankProcess2.Amount + " " + BankProcess2.ProcessDate; 
-            
+            lblBankProcess2.Text = BankProcess2.Desciription + " " + BankProcess2.Amount + " " + BankProcess2.ProcessDate;
+
             var BankProcess3 = db.BankProcesses.OrderByDescending(x => x.BankProcessId).Take(3).Skip(2).FirstOrDefault();
-            lblBankProcess3.Text = BankProcess3.Desciription + " " + BankProcess3.Amount + " " + BankProcess3.ProcessDate; 
-            
+            lblBankProcess3.Text = BankProcess3.Desciription + " " + BankProcess3.Amount + " " + BankProcess3.ProcessDate;
+
             var BankProcess4 = db.BankProcesses.OrderByDescending(x => x.BankProcessId).Take(4).Skip(3).FirstOrDefault();
-            lblBankProcess4.Text = BankProcess4.Desciription + " " + BankProcess4.Amount + " " + BankProcess4.ProcessDate; 
-            
+            lblBankProcess4.Text = BankProcess4.Desciription + " " + BankProcess4.Amount + " " + BankProcess4.ProcessDate;
+
             var BankProcess5 = db.BankProcesses.OrderByDescending(x => x.BankProcessId).Take(5).Skip(4).FirstOrDefault();
             lblBankProcess5.Text = BankProcess5.Desciription + " " + BankProcess5.Amount + " " + BankProcess5.ProcessDate;
+            Edit.edit(this);
         }
 
         private void btnBillForm_Click(object sender, EventArgs e)
         {
-            FrmBilling frm = new FrmBilling();
-            frm.Show();
-            this.Close();
+            form.OpenForm(this, form.FormType.Billing);
+        }
+
+        private void btnDashbord_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.Dashboard);
+        }
+
+        private void btnCatagoriys_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.Categories);
+        }
+
+        private void btnBankProcesses_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.BankProcesses);
+        }
+
+        private void btnSpendings_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.Spendings);
+        }
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void btnProperties_Click(object sender, EventArgs e)
+        {
+            form.OpenForm(this, form.FormType.settings);
         }
     }
 }
