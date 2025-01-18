@@ -97,7 +97,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Users Talha";
+            this.Text = "Users";
             this.ResumeLayout(false);
             this.PerformLayout();
 
