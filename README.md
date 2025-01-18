@@ -89,5 +89,6 @@
 
 
 Ayarlar ve Login formları dışında, tüm formlarda Edit sınıfının edit metodunu çağırarak, this parametresi ile Özellikler sınıfındaki özellikleri ilgili forma entegre ediyorum.
+
 Formlar arası geçişlerde nesne oluşturmayı ve kod karmaşıklığını azaltmak için özel bir sınıf oluşturdum. Bu sınıfta tüm formlar için bir sorgu yazdım ve her formu açmak istediğimde yalnızca bu sınıfı çağırıp ilgili formu belirterek işlemi gerçekleştiriyorum.
 
