@@ -30,6 +30,9 @@ namespace MyFinancialCrm
         {
             Edit.edit(this);
 
+            bills = db.Bills.ToList();
+            processes = db.BankProcesses.ToList();
+            banks = db.Banks.ToList();
             wb.Navigate("https://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+page+site+area/bugun");
             wb.ScriptErrorsSuppressed = true;
 
@@ -64,9 +67,6 @@ namespace MyFinancialCrm
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            bills = db.Bills.ToList();
-            processes = db.BankProcesses.ToList();
-            banks = db.Banks.ToList();
             // Tüm Faturaları Yazdırma
             {
                 countBill++;
