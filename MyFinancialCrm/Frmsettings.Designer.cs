@@ -41,13 +41,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnBack2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbForm = new System.Windows.Forms.ComboBox();
             this.btnShow = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNo = new System.Windows.Forms.Button();
             this.btnYes = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbForm = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtFontSize)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -200,6 +200,26 @@
             this.panel1.Size = new System.Drawing.Size(667, 645);
             this.panel1.TabIndex = 12;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(62, 422);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 24);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Form Tipi:";
+            // 
+            // cmbForm
+            // 
+            this.cmbForm.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbForm.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbForm.FormattingEnabled = true;
+            this.cmbForm.Location = new System.Drawing.Point(165, 419);
+            this.cmbForm.Name = "cmbForm";
+            this.cmbForm.Size = new System.Drawing.Size(365, 32);
+            this.cmbForm.TabIndex = 14;
+            // 
             // btnShow
             // 
             this.btnShow.BackColor = System.Drawing.Color.Lime;
@@ -218,7 +238,7 @@
             this.panel2.Controls.Add(this.btnNo);
             this.panel2.Controls.Add(this.btnYes);
             this.panel2.Controls.Add(this.btnBack);
-            this.panel2.Location = new System.Drawing.Point(469, 1);
+            this.panel2.Location = new System.Drawing.Point(679, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(212, 228);
             this.panel2.TabIndex = 14;
@@ -260,31 +280,11 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(62, 422);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 24);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Form Tipi:";
-            // 
-            // cmbForm
-            // 
-            this.cmbForm.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbForm.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbForm.FormattingEnabled = true;
-            this.cmbForm.Location = new System.Drawing.Point(165, 419);
-            this.cmbForm.Name = "cmbForm";
-            this.cmbForm.Size = new System.Drawing.Size(365, 32);
-            this.cmbForm.TabIndex = 14;
-            // 
             // Frmsettings
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(682, 673);
+            this.ClientSize = new System.Drawing.Size(892, 673);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
